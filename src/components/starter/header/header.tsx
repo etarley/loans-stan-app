@@ -1,32 +1,18 @@
 import { component$ } from '@builder.io/qwik';
-import { QwikLogo } from '../icons/qwik';
-import styles from './header.module.css';
+import HamburgerButton from './leftContent/hamburgerButton';
+import { SearchBar } from './leftContent/searchBar';
+import { HomeButton } from './leftContent/homeButton';
 
 export default component$(() => {
   return (
-    <header class={styles.header}>
-      <div class={styles.logo}>
-        <a href="/" title="qwik">
-          <QwikLogo />
-        </a>
+    <header
+      class={'flex bg-teal-600 text-white justify-between items-center py-2'}
+    >
+      <div class={'flex items-center gap-2'}>
+        <HamburgerButton />
+        <HomeButton />
+        <SearchBar />
       </div>
-      <ul>
-        <li>
-          <a href="https://qwik.builder.io/docs/components/overview/" target="_blank">
-            Docs
-          </a>
-        </li>
-        <li>
-          <a href="https://qwik.builder.io/examples/introduction/hello-world/" target="_blank">
-            Examples
-          </a>
-        </li>
-        <li>
-          <a href="https://qwik.builder.io/tutorial/welcome/overview/" target="_blank">
-            Tutorials
-          </a>
-        </li>
-      </ul>
     </header>
   );
 });
