@@ -30,8 +30,8 @@ export default component$(() => {
           d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'
         />
       </svg>
-      <span class='bg-black text-center truncate invisible group-hover:visible group-hover:transition-all group-hover:delay-500 text-gray-400 py-0.5 px-2 rounded-lg absolute -bottom-6 text-sm left-1/2 flex -translate-x-1/2 items-start gap-3 justify-self-center'>
-        ver menu
+      <span class='bg-black text-center truncate invisible group-hover:visible group-hover:transition-all group-hover:delay-500 text-white py-0.5 px-2 rounded-lg absolute -bottom-6 text-sm left-1/2 flex -translate-x-1/2 items-start gap-3 justify-self-center'>
+        Ver menu
       </span>
     </button>
   );

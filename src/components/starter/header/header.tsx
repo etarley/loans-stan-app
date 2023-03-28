@@ -6,6 +6,7 @@ import { AvatarL } from './rightContent/avatarL';
 import { AddButton } from './rightContent/addButton';
 import { Notifications } from './rightContent/notifications';
 import { HelpButton } from './rightContent/helpButton';
+import { AccountMenu } from './rightContent/dropdowns/accountMenu';
 
 export default component$(() => {
   return (
@@ -24,7 +25,10 @@ export default component$(() => {
           <AddButton />
           <Notifications />
           <HelpButton />
-          <AvatarL />
+          <div class='relative'>
+            <AvatarL />
+            <AccountMenu />
+          </div>
         </div>
       </navbar>
     </header>

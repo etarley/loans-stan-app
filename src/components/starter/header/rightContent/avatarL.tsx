@@ -1,9 +1,8 @@
 import { component$ } from '@builder.io/qwik';
 import { AvatarRC } from '~/integrations/react/avatar';
-
 export const AvatarL = component$(() => {
   return (
-    <button class='flex items-center relative group hover:bg-teal-500 px-2 py-0.5 rounded-full gap-1 cursor-pointer hover:transition-all hover:delay-100'>
+    <button class='relative flex items-center group bg-teal-500 px-2 py-0.5 rounded-full gap-1 cursor-pointer hover:transition-all hover:delay-100'>
       <AvatarRC
         size={40}
         name='Argenis Leon'
@@ -16,7 +15,7 @@ export const AvatarL = component$(() => {
         viewBox='0 0 24 24'
         stroke-width='1.5'
         stroke='currentColor'
-        class='w-6 h-6 invisible group-hover:visible group-hover:transition-all group-hover:delay-100'
+        class='w-6 h-6  group-hover:visible group-hover:transition-all group-hover:delay-100'
       >
         <path
           stroke-linecap='round'
@@ -24,7 +23,7 @@ export const AvatarL = component$(() => {
           d='M19.5 8.25l-7.5 7.5-7.5-7.5'
         />
       </svg>
-      <span class='bg-black text-center truncate invisible group-hover:visible group-hover:transition-all group-hover:delay-500 text-gray-400 py-0.5 px-2 rounded-lg absolute -bottom-6 text-sm left-1/2 flex -translate-x-1/2 items-start gap-3 justify-self-center'>
+      <span class='bg-black text-center truncate invisible group-hover:visible group-hover:transition-all group-hover:delay-500 text-white py-0.5 px-2 rounded-lg absolute -bottom-6 text-sm left-1/2 flex -translate-x-1/2 items-start gap-3 justify-self-center'>
         Configurar Perfil
       </span>
     </button>
