@@ -3,7 +3,7 @@ import { Form } from '@builder.io/qwik-city';
 
 export const SearchBar = component$(() => {
   return (
-    <Form class='bg-teal-500 rounded py-0.5 px-1 ml-1 gap-x-0.5 flex items-center group hover:bg-white shadow hover:border focus-within:outline focus-within:outline-teal-300 hover:border-teal-300 focus-within:shadow-lg focus-within:hover:border-none focus-within:bg-white '>
+    <Form class='bg-teal-500 rounded py-0.5 px-1 ml-2 gap-x-0.5 flex items-center group hover:bg-white shadow hover:border focus-within:outline focus-within:outline-teal-300 hover:border-teal-300 focus-within:shadow-lg focus-within:hover:border-none focus-within:bg-white '>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         fill='none'

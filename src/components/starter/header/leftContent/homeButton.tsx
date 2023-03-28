@@ -4,7 +4,7 @@ import { Link } from '@builder.io/qwik-city';
 export const HomeButton = component$(() => {
   return (
     <>
-      <button class=' hover:bg-teal-500 p-1 rounded-sm stroke-white relative group'>
+      <button class=' hover:bg-teal-500 p-2 rounded-full stroke-white relative group'>
         <Link href='/'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -21,9 +21,9 @@ export const HomeButton = component$(() => {
             />
           </svg>
         </Link>
-        <p class='bg-black text-center truncate invisible group-hover:visible text-gray-400 py-0.5 px-1 rounded absolute -bottom-6 text-sm left-1/2 flex -translate-x-1/2 items-start gap-3 justify-self-center'>
+        <span class='bg-black text-center truncate invisible group-hover:visible group-hover:transition-all group-hover:delay-500 text-gray-400 py-0.5 px-2 rounded-lg absolute -bottom-6 text-sm left-1/2 flex -translate-x-1/2 items-start gap-3 justify-self-center'>
           Ir a inicio
-        </p>
+        </span>
       </button>
     </>
   );
