@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 
-export const Notifications = component$(() => {
+export const NotificationsButton = component$(() => {
   return (
     <button class='hover:bg-teal-500 rounded-full p-2 relative group'>
       <svg

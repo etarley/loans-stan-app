@@ -4,9 +4,11 @@ import { SearchBar } from './leftContent/searchBar';
 import { HomeButton } from './leftContent/homeButton';
 import { AvatarL } from './rightContent/avatarL';
 import { AddButton } from './rightContent/addButton';
-import { Notifications } from './rightContent/notifications';
+import { NotificationsButton } from './rightContent/notificationsButton';
 import { HelpButton } from './rightContent/helpButton';
-import { AccountMenu } from './rightContent/dropdowns/accountMenu';
+import { Notifications } from './rightContent/dropdowns/notifications';
+// import { HelpMenu } from './rightContent/dropdowns/helpMenu';
+// import { AccountMenu } from './rightContent/dropdowns/accountMenu';
 
 export default component$(() => {
   return (
@@ -23,11 +25,17 @@ export default component$(() => {
         </div>
         <div class={'flex items-center'}>
           <AddButton />
-          <Notifications />
-          <HelpButton />
+          <div class='relative'>
+            <NotificationsButton />
+            <Notifications />
+          </div>
+          <div class='relative'>
+            <HelpButton />
+            {/* <HelpMenu /> */}
+          </div>
           <div class='relative'>
             <AvatarL />
-            <AccountMenu />
+            {/* <AccountMenu /> */}
           </div>
         </div>
       </navbar>
