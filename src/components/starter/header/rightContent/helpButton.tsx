@@ -1,8 +1,21 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, $ } from '@builder.io/qwik';
+import type { Props } from './notificationsButton';
 
-export const HelpButton = component$(() => {
+export const HelpButton = component$<Props>(({ OpenMenu }) => {
+  const openHelp = $(() => {
+    if (OpenMenu.value === 'help') {
+      OpenMenu.value = 'none';
+    } else {
+      OpenMenu.value = 'help';
+    }
+  });
   return (
-    <button class='hover:bg-teal-500 rounded-full p-2 relative group'>
+    <button
+      class={`hover:bg-teal-500 rounded-full p-2 relative group ${
+        OpenMenu.value === 'help' && 'bg-teal-700'
+      }`}
+      onClick$={openHelp}
+    >
       <svg
         xmlns='http://www.w3.org/2000/svg'
         fill='none'

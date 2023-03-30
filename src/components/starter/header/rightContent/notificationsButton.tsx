@@ -1,8 +1,27 @@
-import { component$ } from '@builder.io/qwik';
+import { $, component$ } from '@builder.io/qwik';
 
-export const NotificationsButton = component$(() => {
+export interface Props {
+  OpenMenu: {
+    value: 'notifications' | 'help' | 'account' | 'none';
+  };
+}
+
+export const NotificationsButton = component$<Props>(({ OpenMenu }) => {
+  const openNotifications = $(() => {
+    if (OpenMenu.value === 'notifications') {
+      OpenMenu.value = 'none';
+    } else {
+      OpenMenu.value = 'notifications';
+    }
+  });
+
   return (
-    <button class='hover:bg-teal-500 rounded-full p-2 relative group'>
+    <button
+      class={`hover:bg-teal-500 rounded-full p-2 relative group ${
+        OpenMenu.value === 'notifications' && 'bg-teal-700'
+      }`}
+      onClick$={openNotifications}
+    >
       <svg
         xmlns='http://www.w3.org/2000/svg'
         fill='none'

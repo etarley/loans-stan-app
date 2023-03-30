@@ -1,4 +1,4 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useSignal } from '@builder.io/qwik';
 import HamburgerButton from './leftContent/hamburgerButton';
 import { SearchBar } from './leftContent/searchBar';
 import { HomeButton } from './leftContent/homeButton';
@@ -6,11 +6,19 @@ import { AvatarL } from './rightContent/avatarL';
 import { AddButton } from './rightContent/addButton';
 import { NotificationsButton } from './rightContent/notificationsButton';
 import { HelpButton } from './rightContent/helpButton';
-import { Notifications } from './rightContent/dropdowns/notifications';
-// import { HelpMenu } from './rightContent/dropdowns/helpMenu';
-// import { AccountMenu } from './rightContent/dropdowns/accountMenu';
+import { NotificationsList } from './rightContent/dropdowns/notificationsList';
+import { HelpMenu } from './rightContent/dropdowns/helpMenu';
+import { AccountMenu } from './rightContent/dropdowns/accountMenu';
+
+export type menuOpen = 'notifications' | 'help' | 'account' | 'none';
+
+export type OpenMenu = {
+  value: 'notifications' | 'help' | 'account' | 'none';
+};
 
 export default component$(() => {
+  const openMenu = useSignal<menuOpen>('none');
+
   return (
     <header class={'bg-teal-600'}>
       <navbar
@@ -26,16 +34,16 @@ export default component$(() => {
         <div class={'flex items-center'}>
           <AddButton />
           <div class='relative'>
-            <NotificationsButton />
-            <Notifications />
+            <NotificationsButton OpenMenu={openMenu} />
+            {openMenu.value === 'notifications' && <NotificationsList />}
           </div>
           <div class='relative'>
-            <HelpButton />
-            {/* <HelpMenu /> */}
+            <HelpButton OpenMenu={openMenu} />
+            {openMenu.value === 'help' && <HelpMenu />}
           </div>
           <div class='relative'>
-            <AvatarL />
-            {/* <AccountMenu /> */}
+            <AvatarL OpenMenu={openMenu} />
+            {openMenu.value === 'account' && <AccountMenu />}
           </div>
         </div>
       </navbar>

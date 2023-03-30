@@ -1,8 +1,22 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, $ } from '@builder.io/qwik';
 import { AvatarRC } from '~/integrations/react/avatar';
-export const AvatarL = component$(() => {
+import type { Props } from './notificationsButton';
+
+export const AvatarL = component$<Props>(({ OpenMenu }) => {
+  const openAccountSettings = $(() => {
+    if (OpenMenu.value === 'account') {
+      OpenMenu.value = 'none';
+    } else {
+      OpenMenu.value = 'account';
+    }
+  });
   return (
-    <button class='relative flex items-center group bg-teal-500 px-2 py-0.5 rounded-full gap-1 cursor-pointer hover:transition-all hover:delay-100'>
+    <button
+      class={`relative ${
+        OpenMenu.value === 'account' && 'bg-teal-700'
+      } flex items-center group hover:bg-teal-500 px-2 py-0.5 rounded-full gap-1 cursor-pointer hover:transition-all hover:delay-100`}
+      onClick$={openAccountSettings}
+    >
       <AvatarRC
         size={40}
         name='Argenis Leon'
