@@ -1,10 +1,13 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useSignal } from '@builder.io/qwik';
 import { Notifications } from './notifications/notifications';
 
+export type NotificationsFilter = 'Todas' | 'Sin leer';
+
 export const NotificationsList = component$(() => {
+  const filter = useSignal<NotificationsFilter>('Todas');
   return (
     <menu
-      class={`shadow-lg bg-white w-96 h-[540px] text-black rounded-lg absolute text-sm top-12 flex-col flex items-start gap-0 justify-self-start  right-0 `}
+      class={`shadow-lg notifications bg-white w-96 h-[540px] text-black rounded-lg absolute text-sm top-12 flex-col flex items-start gap-0 justify-self-start  right-0 `}
     >
       <div class='flex gap-44 mx-auto p-4 items-center'>
         <div class='flex bg-gray-200 rounded-full px-1 py-0.5 gap-2'>
@@ -36,7 +39,7 @@ export const NotificationsList = component$(() => {
         </button>
       </div>
       <div class='overflow-x-hidden overflow-y-scroll h-full w-full scroll-m-0 scroll-p-0'>
-        <Notifications />
+        <Notifications filter={filter} />
       </div>
       {/* <div>
         <img class='mx-auto' src='/images/noNotifications.jpg' />

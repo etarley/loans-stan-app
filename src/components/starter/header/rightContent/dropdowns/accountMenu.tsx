@@ -4,7 +4,7 @@ import { AvatarRC } from '~/integrations/react/avatar';
 
 export const AccountMenu = component$(() => {
   return (
-    <menu class='shadow-lg bg-gray-50 text-black rounded-lg absolute text-sm top-12 flex-col flex items-start gap-2 justify-self-start pb-4 right-0'>
+    <menu class='shadow-lg bg-gray-50 text-black account rounded-lg absolute text-sm top-12 flex-col flex items-start gap-2 justify-self-start pb-4 right-0'>
       <Link class='flex items-center gap-4 bg-teal-50 cursor-pointer p-6 rounded'>
         <AvatarRC
           size={60}

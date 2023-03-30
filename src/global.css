@@ -5,6 +5,7 @@
 div::-webkit-scrollbar {
   width: 0.5em;
   display: none;
+  crusor: pointer;
 }
 
 div:hover::-webkit-scrollbar {

@@ -24,9 +24,6 @@
     "@builder.io/qwik": "0.24.0",
     "@builder.io/qwik-city": "~0.7.0",
     "@builder.io/qwik-react": "0.5.0",
-    "@emotion/react": "11.10.6",
-    "@emotion/styled": "11.10.6",
-    "@mui/material": "5.11.9",
     "@mui/x-data-grid": "5.17.24",
     "@types/eslint": "8.21.3",
     "@types/node": "^18.15.3",
@@ -49,6 +46,7 @@
     "vite-tsconfig-paths": "3.5.0"
   },
   "dependencies": {
-    "boring-avatars": "^1.7.0"
+    "boring-avatars": "^1.7.0",
+    "framer-motion": "^10.10.0"
   }
 }

@@ -11,7 +11,7 @@ export const HelpButton = component$<Props>(({ OpenMenu }) => {
   });
   return (
     <button
-      class={`hover:bg-teal-500 rounded-full p-2 relative group ${
+      class={`hover:bg-teal-500 help rounded-full p-2 relative group ${
         OpenMenu.value === 'help' && 'bg-teal-700'
       }`}
       onClick$={openHelp}

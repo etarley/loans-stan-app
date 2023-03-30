@@ -29,8 +29,10 @@ export default component$(() => {
     <div class='page'>
       <main>
         <Header />
-        <Sidebar />
-        <Slot />
+        <div class='flex '>
+          <Sidebar />
+          <Slot />
+        </div>
       </main>
     </div>
   );

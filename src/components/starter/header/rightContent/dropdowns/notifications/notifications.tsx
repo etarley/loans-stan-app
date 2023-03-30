@@ -1,17 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
 
-// export interface NotificationsProps {
-//   notifications: {
-//     id: number;
-//     title: string;
-//     description: string;
-//     date: string;
-//     read: boolean;
-//     img: 'money' | 'alert' | 'clock';
-//   }[];
-// }
-
 const notifications = [
   {
     id: 1,
@@ -66,7 +55,7 @@ const notifications = [
     title: 'Nuevo cliente',
     description: 'Se ha registrado un nuevo cliente',
     date: 'Hace 5 minutos',
-    read: false,
+    read: true,
     img: 'money',
   },
   {
@@ -74,7 +63,7 @@ const notifications = [
     title: 'Nuevo cliente',
     description: 'Se ha registrado un nuevo cliente',
     date: 'Hace 5 minutos',
-    read: false,
+    read: true,
     img: 'money',
   },
   {
@@ -82,7 +71,7 @@ const notifications = [
     title: 'Nuevo cliente',
     description: 'Se ha registrado un nuevo cliente',
     date: 'Hace 5 minutos',
-    read: false,
+    read: true,
     img: 'money',
   },
   {
@@ -90,7 +79,7 @@ const notifications = [
     title: 'Nuevo cliente',
     description: 'Se ha registrado un nuevo cliente',
     date: 'Hace 5 minutos',
-    read: false,
+    read: true,
     img: 'money',
   },
   {
@@ -99,15 +88,27 @@ const notifications = [
     description:
       'Se ha registrado un nuevo cliente en la base de datos de virus.',
     date: 'Hace 5 minutos',
-    read: false,
+    read: true,
     img: 'money',
   },
 ];
 
-export const Notifications = component$(() => {
+export interface NotificationProps {
+  filter: { value: 'Todas' | 'Sin leer' };
+}
+
+export const Notifications = component$<NotificationProps>(({ filter }) => {
+  const filteredNotifications = notifications.filter((notification) => {
+    if (filter.value === 'Todas') {
+      return true;
+    } else {
+      return !notification.read;
+    }
+  });
+
   return (
     <ul>
-      {notifications.map((notification) => {
+      {filteredNotifications.map((notification) => {
         return (
           <li key={notification.id}>
             <Link class='flex hover:bg-teal-100 items-center gap-1 bg-teal-50 w-full cursor-pointer px-5 p-6 rounded'>

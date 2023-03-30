@@ -1,4 +1,4 @@
-import { component$, useSignal } from '@builder.io/qwik';
+import { component$, useSignal, $, useOnDocument } from '@builder.io/qwik';
 import HamburgerButton from './leftContent/hamburgerButton';
 import { SearchBar } from './leftContent/searchBar';
 import { HomeButton } from './leftContent/homeButton';
@@ -19,14 +19,25 @@ export type OpenMenu = {
 export default component$(() => {
   const openMenu = useSignal<menuOpen>('none');
 
+  const closeMenu = $((event: Event) => {
+    if (
+      openMenu.value !== 'none' &&
+      !(event.target as HTMLElement).closest('header')
+    ) {
+      openMenu.value = 'none';
+    }
+  });
+
+  useOnDocument('click', closeMenu);
+
   return (
-    <header class={'bg-teal-600'}>
+    <header class={'bg-teal-600 w-screen h-[6vh]'}>
       <navbar
         class={
           'flex  text-white justify-between items-center py-2 w-[98%] mx-auto'
         }
       >
-        <div class={'flex items-center gap-2'}>
+        <div class={'flex items-center gap-0.5 w-'}>
           <HamburgerButton />
           <HomeButton />
           <SearchBar />
