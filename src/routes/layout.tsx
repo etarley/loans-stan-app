@@ -26,10 +26,10 @@ export default component$(() => {
 
   useContextProvider(SidebarState, showSidebar);
   return (
-    <div class='page'>
+    <div class='page bg-gray-300'>
       <main>
         <Header />
-        <div class='flex '>
+        <div class='flex'>
           <Sidebar />
           <Slot />
         </div>

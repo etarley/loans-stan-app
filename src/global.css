@@ -24,3 +24,18 @@ div::-webkit-scrollbar-thumb:hover {
 div::-webkit-scrollbar-track {
   background-color: #f3f4f6;
 }
+
+.ag-theme-material {
+  --ag-border: none;
+  --ag-foreground-color: #042f2e;
+  --ag-background-color: #ffffff;
+  --ag-header-foreground-color: #f0fdfa;
+  --ag-header-background-color: #0d9488;
+  --ag-odd-row-background-color: #f0fdfa;
+  --ag-header-column-resize-handle-color: #f8fafc;
+  --ag-selected-row-background-color: #ccfbf1;
+  --ag-grid-size: 0.5rem;
+  --ag-list-item-height: 1rem;
+
+  --ag-font-size: 1rem;
+}

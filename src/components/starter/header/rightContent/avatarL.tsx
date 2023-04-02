@@ -29,7 +29,7 @@ export const AvatarL = component$<Props>(({ OpenMenu }) => {
         viewBox='0 0 24 24'
         stroke-width='1.5'
         stroke='currentColor'
-        class='w-6 h-6  group-hover:visible group-hover:transition-all group-hover:delay-100'
+        class='w-[24px] h-[24px]  group-hover:visible group-hover:transition-all group-hover:delay-100'
       >
         <path
           stroke-linecap='round'

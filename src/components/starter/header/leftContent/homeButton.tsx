@@ -12,7 +12,7 @@ export const HomeButton = component$(() => {
             viewBox='0 0 24 24'
             stroke-width='1.5'
             stroke='currentColor'
-            class='w-6 h-6'
+            class='w-[24px] h-[24px]'
           >
             <path
               stroke-linecap='round'
@@ -21,7 +21,7 @@ export const HomeButton = component$(() => {
             />
           </svg>
         </Link>
-        <span class='bg-black text-center truncate invisible group-hover:visible group-hover:transition-all group-hover:delay-500 text-white py-0.5 px-2 rounded-lg absolute -bottom-6 text-sm left-1/2 flex -translate-x-1/2 items-start gap-3 justify-self-center'>
+        <span class='bg-black text-center truncate z-50 invisible group-hover:visible group-hover:transition-all group-hover:delay-500 text-white py-0.5 px-2 rounded-lg absolute -bottom-6 text-sm left-1/2 flex -translate-x-1/2 items-start gap-3 justify-self-center'>
           Ir a inicio
         </span>
       </button>

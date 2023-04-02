@@ -10,7 +10,7 @@ export const SearchBar = component$(() => {
         viewBox='0 0 24 24'
         stroke-width='1.5'
         stroke='currentColor'
-        class='w-6 h-6 group-hover:stroke-black px-0.5 group-focus-within:stroke-black'
+        class='w-[24px] h-[24px] group-hover:stroke-black px-0.5 group-focus-within:stroke-black'
       >
         <path
           stroke-linecap='round'

@@ -31,7 +31,7 @@ export default component$(() => {
   useOnDocument('click', closeMenu);
 
   return (
-    <header class={'bg-teal-600 w-screen h-[6vh]'}>
+    <header class={'bg-teal-600 w-screen h-[36px]] z-50 absolute'}>
       <navbar
         class={
           'flex  text-white justify-between items-center py-2 w-[98%] mx-auto'

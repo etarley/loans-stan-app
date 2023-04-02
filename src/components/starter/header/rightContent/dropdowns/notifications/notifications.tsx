@@ -111,7 +111,11 @@ export const Notifications = component$<NotificationProps>(({ filter }) => {
       {filteredNotifications.map((notification) => {
         return (
           <li key={notification.id}>
-            <Link class='flex hover:bg-teal-100 items-center gap-1 bg-teal-50 w-full cursor-pointer px-5 p-6 rounded'>
+            <Link
+              class={`flex hover:bg-teal-200 items-center gap-1 ${
+                notification.read ? 'bg-gray-200' : 'bg-teal-100'
+              } w-full cursor-pointer px-5 p-6 rounded`}
+            >
               <div class='p-6 rounded-full border-solid border black bg-white'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -119,7 +123,7 @@ export const Notifications = component$<NotificationProps>(({ filter }) => {
                   viewBox='0 0 24 24'
                   stroke-width='1.5'
                   stroke='currentColor'
-                  class='w-8 h-8 text-teal-400'
+                  class='w-[32px] h-[32px] text-teal-500'
                 >
                   <path
                     stroke-linecap='round'
@@ -133,37 +137,39 @@ export const Notifications = component$<NotificationProps>(({ filter }) => {
                 <span class=' truncate font-semibold'>
                   {notification.title}
                 </span>
-                <span class='text-teal-600 text-sm w-56 h-auto font-light text-ellipsis'>
+                <span class='text-teal-700 text-sm w-56 h-auto font-light text-ellipsis'>
                   {notification.description}
                 </span>
                 <span class='text-gray-500 text-sm font-light'>
                   {notification.date}
                 </span>
               </div>
-              <button class='group relative text-gray-400 hover:text-gray-800'>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke-width='1.5'
-                  stroke='currentColor'
-                  class='w-4 h-4'
-                >
-                  <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    d='M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z'
-                  />
-                  <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'
-                  />
-                </svg>
-                <span class='bg-black text-center invisible group-hover:visible group-hover:transition-all group-hover:delay-500 text-white py-0.5 px-2 rounded-lg absolute -bottom-6 text-sm left-1/2 flex -translate-x-1/2 items-start gap-3 justify-self-center z-0  truncate'>
-                  Leído
-                </span>
-              </button>
+              {!notification.read && (
+                <button class='group relative text-gray-400 hover:text-gray-800'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke-width='1.5'
+                    stroke='currentColor'
+                    class='w-[16px] h-[16px]'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      d='M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z'
+                    />
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+                    />
+                  </svg>
+                  <span class='bg-black text-center invisible group-hover:visible group-hover:transition-all group-hover:delay-500 text-white py-0.5 px-2 rounded-lg absolute -bottom-6 text-sm left-1/2 flex -translate-x-1/2 items-start gap-3 justify-self-center z-0  truncate'>
+                    Leído
+                  </span>
+                </button>
+              )}
             </Link>
           </li>
         );

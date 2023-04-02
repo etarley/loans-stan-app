@@ -11,11 +11,11 @@ export default component$(() => {
       initial={false}
       animate={showSidebar.value ? 'open' : 'closed'}
       variants={{
-        open: { width: 400, x: 0 },
-        closed: { width: 0, x: '-100%' },
+        open: { width: 305, x: 0, zIndex: 0 },
+        closed: { width: 0, x: '-100%', zIndex: -1 },
       }}
       transition={{ duration: 0.2 }}
-      className='overflow-hidden bg-gray-100 shadow h-[94vh]'
+      className='overflow-hidden bg-gray-100 shadow h-screen pt-[60px]'
     >
       <MotionSpan>Sidebar</MotionSpan>
     </MotionDiv>
