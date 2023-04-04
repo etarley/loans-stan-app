@@ -1,4 +1,4 @@
-import { component$, useContext } from '@builder.io/qwik';
+import { component$, useContext,  } from '@builder.io/qwik';
 import { SidebarState } from '~/routes/layout';
 
 export default component$(() => {
@@ -8,11 +8,6 @@ export default component$(() => {
       class=' hover:bg-teal-500 p-2 rounded-full stroke-white relative group'
       onClick$={() => {
         showSidebar.value = !showSidebar.value;
-      }}
-      window:onKeyDown$={(event) => {
-        if (event.key.toLowerCase() === 'm') {
-          showSidebar.value = !showSidebar.value;
-        }
       }}
     >
       <svg

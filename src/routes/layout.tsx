@@ -12,8 +12,15 @@ import Sidebar from '~/components/starter/sidebar/sidebar';
 export type Object = {
   value: boolean;
 };
+export type SearchValue = {
+  value: string;
+};
+
 export type ShowSideBar = boolean;
 export const SidebarState = createContextId<Object>('sidebarState');
+
+export type search = string;
+export const SearchState = createContextId<SearchValue>('SearchState');
 
 export const useServerTimeLoader = routeLoader$(() => {
   return {
@@ -23,7 +30,8 @@ export const useServerTimeLoader = routeLoader$(() => {
 
 export default component$(() => {
   const showSidebar = useSignal<ShowSideBar>(true);
-
+  const search = useSignal<search>('');
+  useContextProvider(SearchState, search);
   useContextProvider(SidebarState, showSidebar);
   return (
     <div class='page bg-gray-300'>
