@@ -1,5 +1,4 @@
-import { component$, useSignal } from '@builder.io/qwik';
-import type { Signal } from '@builder.io/qwik';
+import { component$, useSignal, useContext } from '@builder.io/qwik';
 
 export const AddClientModal = component$(() => {
   const balance = useSignal('');

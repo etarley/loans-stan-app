@@ -17,8 +17,11 @@ export type SearchValue = {
   value: string;
 };
 
-export type ShowSideBar = boolean;
+export type Show = boolean;
 export const SidebarState = createContextId<Object>('sidebarState');
+export const AddClientModalState = createContextId<Object>(
+  'addClientModalState'
+);
 
 export type search = string;
 export const SearchState = createContextId<SearchValue>('SearchState');
@@ -30,10 +33,14 @@ export const useServerTimeLoader = routeLoader$(() => {
 });
 
 export default component$(() => {
-  const showSidebar = useSignal<ShowSideBar>(true);
+  const showSidebar = useSignal<Show>(true);
   const search = useSignal<search>('');
+  const addClientModal = useSignal<Show>(false);
+
   useContextProvider(SearchState, search);
   useContextProvider(SidebarState, showSidebar);
+  useContextProvider(AddClientModalState, addClientModal);
+
   return (
     <div class='page bg-gray-300'>
       <main>
@@ -42,7 +49,7 @@ export default component$(() => {
           <Sidebar />
           <Slot />
         </div>
-        <AddClientModal />
+        {addClientModal.value && <AddClientModal />}
       </main>
     </div>
   );

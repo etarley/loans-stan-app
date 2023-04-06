@@ -1,11 +1,14 @@
-import { component$ } from '@builder.io/qwik';
-import { Link } from '@builder.io/qwik-city';
-
+import { component$, useContext } from '@builder.io/qwik';
+import { AddClientModalState } from '~/routes/layout';
 export const AddButton = component$(() => {
+  const addClientModal = useContext(AddClientModalState);
+
   return (
-    <Link
+    <button
       class='hover:bg-teal-500 rounded-full p-2 relative group cursor-pointer'
-      href='/addClient'
+      onClick$={() => {
+        addClientModal.value = !addClientModal.value;
+      }}
     >
       <svg
         xmlns='http://www.w3.org/2000/svg'
@@ -24,6 +27,6 @@ export const AddButton = component$(() => {
       <span class='bg-black text-center truncate invisible group-hover:visible group-hover:transition-all group-hover:delay-500 text-white py-0.5 px-2 rounded-lg absolute -bottom-6 text-sm left-1/2 flex -translate-x-1/2 items-start gap-3 justify-self-center'>
         Agregar cliente
       </span>
-    </Link>
+    </button>
   );
 });
