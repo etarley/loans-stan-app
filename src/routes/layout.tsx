@@ -6,6 +6,7 @@ import {
   createContextId,
 } from '@builder.io/qwik';
 import { routeLoader$ } from '@builder.io/qwik-city';
+import { AddClientModal } from '~/components/addClientModal/addClientModal';
 
 import Header from '~/components/starter/header/header';
 import Sidebar from '~/components/starter/sidebar/sidebar';
@@ -41,6 +42,7 @@ export default component$(() => {
           <Sidebar />
           <Slot />
         </div>
+        <AddClientModal />
       </main>
     </div>
   );

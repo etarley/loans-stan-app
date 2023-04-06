@@ -13,16 +13,16 @@ export default component$(() => {
   const searchState = useContext(SearchState);
 
   const columnDefs = useStore([
-    { field: 'Nombre', sortable: true },
-    { field: 'Balance', sortable: true },
-    { field: 'Proximo Pago', sortable: true },
-    { field: 'Capital', sortable: true },
-    { field: 'Crédito Disponible', sortable: true },
-    { field: 'Interes', sortable: true },
+    { field: 'Nombre', sortable: true, flex: 1.5 },
+    { field: 'Balance', sortable: true, flex: 1 },
+    { field: 'Proximo Pago', sortable: true, flex: 1 },
+    { field: 'Capital', sortable: true, flex: 1 },
+    { field: 'Crédito Disponible', sortable: true, flex: 1 },
+    { field: 'Interes', sortable: true, flex: 1 },
   ]);
 
   return (
-    <div class='mt-[80px] h-[87vh] w-[80%] mx-auto rounded-lg shadow bg-teal-50 '>
+    <div class='mt-[80px] h-[87vh] w-[80%] mx-auto rounded-lg shadow bg-white'>
       <div class=' w-[98%] h-[96%] mt-[1%] mb-[1%] mx-auto'>
         {rowData.length > 0 ? (
           <AgGrid
