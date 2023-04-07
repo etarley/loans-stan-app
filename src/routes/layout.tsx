@@ -1,15 +1,15 @@
 import {
   component$,
-  Slot,
   useSignal,
   useContextProvider,
   createContextId,
+  Slot,
 } from '@builder.io/qwik';
 import { routeLoader$ } from '@builder.io/qwik-city';
-import { AddClientModal } from '~/components/addClientModal/addClientModal';
 
 import Header from '~/components/starter/header/header';
 import Sidebar from '~/components/starter/sidebar/sidebar';
+import { MainView } from './mainView';
 export type Object = {
   value: boolean;
 };
@@ -19,9 +19,9 @@ export type SearchValue = {
 
 export type Show = boolean;
 export const SidebarState = createContextId<Object>('sidebarState');
-export const AddClientModalState = createContextId<Object>(
-  'addClientModalState'
-);
+// export const AddClientModalState = createContextId<Object>(
+//   'addClientModalState'
+// );
 
 export type search = string;
 export const SearchState = createContextId<SearchValue>('SearchState');
@@ -35,11 +35,11 @@ export const useServerTimeLoader = routeLoader$(() => {
 export default component$(() => {
   const showSidebar = useSignal<Show>(true);
   const search = useSignal<search>('');
-  const addClientModal = useSignal<Show>(false);
+  // const addClientModal = useSignal<Show>(false);
 
   useContextProvider(SearchState, search);
   useContextProvider(SidebarState, showSidebar);
-  useContextProvider(AddClientModalState, addClientModal);
+  // useContextProvider(AddClientModalState, addClientModal);
 
   return (
     <div class='page bg-gray-300'>
@@ -47,9 +47,9 @@ export default component$(() => {
         <Header />
         <div class='flex'>
           <Sidebar />
+          <MainView />
           <Slot />
         </div>
-        {addClientModal.value && <AddClientModal />}
       </main>
     </div>
   );

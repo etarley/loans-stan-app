@@ -1,10 +1,18 @@
-import { component$, useSignal, useContext } from '@builder.io/qwik';
+import { $, component$, useSignal } from '@builder.io/qwik';
+import type { DocumentHead } from '@builder.io/qwik-city';
+import { Form, Link } from '@builder.io/qwik-city';
 
-export const AddClientModal = component$(() => {
-  const balance = useSignal('');
-  const capital = useSignal('');
-  const creditAvailable = useSignal('');
-  const interest = useSignal('');
+export default component$(() => {
+  // const balance = useSignal('');
+  // const capital = useSignal('');
+  // const creditAvailable = useSignal('');
+  // const interest = useSignal('');
+  // const name = useSignal('');
+  // const paymentDate = useSignal('');
+  const paymentCurrency = useSignal('DOP');
+  const handleCurrencyChange = $((event: any) => {
+    paymentCurrency.value = event.target.value;
+  });
 
   return (
     <div class='fixed z-10 inset-0 overflow-y-auto'>
@@ -14,7 +22,7 @@ export const AddClientModal = component$(() => {
           <h2 class='text-2xl font-semibold text-teal-500 mb-4'>
             Agregar Cliente
           </h2>
-          <form>
+          <Form>
             <div class='mb-4'>
               <label class='text-gray-700'>Nombre:</label>
               <input
@@ -38,9 +46,11 @@ export const AddClientModal = component$(() => {
                 <select
                   name='balance'
                   class='border border-gray-300 rounded-r-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400'
+                  value={paymentCurrency.value}
+                  onInput$={handleCurrencyChange}
                 >
-                  <option value='DOP'>DOP</option>
                   <option value='USD'>USD</option>
+                  <option value='DOP'>DOP</option>
                 </select>
               </div>
             </div>
@@ -67,9 +77,11 @@ export const AddClientModal = component$(() => {
                 <select
                   name='credito-disponible-currency'
                   class='border border-gray-300 rounded-r-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400'
+                  value={paymentCurrency.value}
+                  onInput$={handleCurrencyChange}
                 >
-                  <option value='DOP'>DOP</option>
                   <option value='USD'>USD</option>
+                  <option value='DOP'>DOP</option>
                 </select>
               </div>
             </div>
@@ -87,13 +99,22 @@ export const AddClientModal = component$(() => {
                 <select
                   name='interes-currency'
                   class='border border-gray-300 rounded-r-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400'
+                  value={paymentCurrency.value}
+                  onInput$={handleCurrencyChange}
                 >
-                  <option value='DOP'>DOP</option>
                   <option value='USD'>USD</option>
+                  <option value='DOP'>DOP</option>
                 </select>
               </div>
             </div>
-            <div class='flex justify-end'>
+            <div class='flex justify-end space-x-2 mt-8'>
+              <Link
+                type='button'
+                class='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg'
+                href='/'
+              >
+                Cancel
+              </Link>
               <button
                 type='submit'
                 class='bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg'
@@ -101,9 +122,19 @@ export const AddClientModal = component$(() => {
                 Add Client
               </button>
             </div>
-          </form>
+          </Form>
         </div>
       </div>
     </div>
   );
 });
+
+export const head: DocumentHead = {
+  title: 'Welcome to Qwik',
+  meta: [
+    {
+      name: 'description',
+      content: 'Qwik site description',
+    },
+  ],
+};
