@@ -19,7 +19,9 @@ export default component$(() => {
       transition={{ duration: 0.2 }}
       className='overflow-hidden bg-gray-100 shadow h-screen pt-[60px] w-64 items-center flex flex-col mt-10'
     >
-      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Customer Groups</h2>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>
+        Grupos de clientes
+      </h2>
       <ul class='list-none flex flex-col gap-1'>
         {customerGroups.map((group, index) => (
           <li
@@ -31,14 +33,20 @@ export default component$(() => {
         ))}
       </ul>
       <div class='mt-4'>
-        <button class='text-teal-500 hover:bg-gray-200 font-bold py-2 px-20  flex items-center'>
+        <button class='text-gray-500 hover:bg-gray-200 font-bold py-2 px-20  flex items-center'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            width='24'
-            height='24'
+            fill='none'
             viewBox='0 0 24 24'
+            stroke-width='1.5'
+            stroke='currentColor'
+            class='w-[24px] h-[24px]'
           >
-            <path d='M19 11H5a1 1 0 0 1 0-2h14a1 1 0 0 1 0 2zm-7 7v-14a1 1 0 0 1 2 0v14a1 1 0 0 1-2 0z' />
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M12 4.5v15m7.5-7.5h-15'
+            />
           </svg>
           Add Group
         </button>
