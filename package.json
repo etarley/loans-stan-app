@@ -50,6 +50,6 @@
     "ag-grid-community": "^29.2.0",
     "ag-grid-react": "^29.2.0",
     "boring-avatars": "^1.7.0",
-    "framer-motion": "^10.12.2"
+    "framer-motion": "^10.12.4"
   }
 }
